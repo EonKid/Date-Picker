@@ -16,7 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    NSDate *now = [NSDate date];
+    [_datePicker setDate:now animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,4 +26,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)btnPressedSelectDate:(id)sender{
+    
+    NSDate *selectedDate = [_datePicker date];
+    NSString *message = [NSString stringWithFormat:@"%@",selectedDate];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Selected Date" message:message delegate:self cancelButtonTitle:@"O.K" otherButtonTitles: nil];
+    [alertView show];
+}
 @end
